@@ -1,41 +1,30 @@
-@if(isset($blogs))
 
-<div class="blog__list">
-   @foreach ($blogs as $blog)
+      @if(isset($blogs))
+            @foreach($blogs as $blog)
 
-   <div class="blog__item ">
-       <article>
-           <a href="blog-details.html">
+                 <a href="{{ route('blogs.view',$blog->slug) }}"  class="blog-standard-wrap">
 
-               @if($blog->thumbnail()!=null)
-               <img src="{{ asset('/pages/imgs/blogs/'.$blog->thumbnail()->filename) }}"
-                   class="img-fluid" alt="image">
-               @else
-               <img src="{{ asset('/pages/imgs/blogs/default.jpg') }}" class="img-fluid"
-                   alt="image">
-               @endif
-           </a>
-           <p class="blog__meta"> <strong>
-                   <a href="{{ route('blogs.view', $blog->slug) }}">{{ $blog->categorie->label }}</a></strong></p>
-
-                   
-                   <div class="postbox__text p-50">
-                       <div class="post-meta ">
-                           <span> {{ humanize_date($blog->created_at) }} </span>
-                       </div>
-                       <h3 class="blog-title">
-                           <a href="{{ route('blogs.view', $blog->slug) }}">{{ $blog->label }}</a>
-                       </h3>
-                   </div>
-
-
-
-       </article>
-   </div>
-   @endforeach
-</div>
-
-{{ $blogs->links() }}
-
-
-@endif
+                     <div class="blog-standard-item wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
+                         <div class="image">
+                             @if(count($blog->getMedia('thumbnail'))>0)
+                                 <img src="{{ $blog->getfirstMedia('thumbnail')->getfullUrl() }}" class="card-img-top rounded-0 object-fit-cover" alt="..." height="440">
+                             @else
+                                 <img src="{{ asset('/pages/images/blog/default.jpg') }}" class="card-img-top rounded-0 object-fit-cover" alt="..." height="440">
+                             @endif
+                         </div>
+                         <div class="blog-standard-content">
+                             <div class="content">
+                                 <ul class="blog-standard-header">
+                                     <li><span class="name">Administrador</span></li>
+                                     <li><i class="far fa-calendar-alt"></i> {{ date('F ,Y', strtotime($blog->created_at)) }}</li>
+                                     <li><i class="far fa-comments"></i>Comentarios (0)</li>
+                                 </ul>
+                                 <h3>{{substr(strip_tags($blog->title), 0, 400)}}.</h3>
+                                 <p>{{substr(strip_tags($blog->description), 0, 400)}}.. </p>
+                             </div>
+                         </div>
+                     </div>
+                </a>
+                
+            @endforeach
+      @endif

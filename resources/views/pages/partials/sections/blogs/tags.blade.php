@@ -1,11 +1,10 @@
-@if (count($tags) > 0)
-
-<div class="widget__tags " >
-    <h2 class="widget__title-2">TAGS</h2>
-    <ul>
-        @foreach ($tags as $tag)
-        <li><a href="{{ route('blogs.tags', [$tag->slug]) }}">{{ $tag->label }}</a></li>
-        @endforeach
-    </ul>
-</div>
-@endif
+ @if (count($tags) > 0)
+    <div class="widget widget-tag-cloud wow fadeInUp delay-0-2s animated">
+        <h4 class="widget-title">Etiquetas destacadas</h4>
+        <div class="tag-coulds">
+            @foreach ($tags as $tag)
+                <a href="{{ route('blogs.tags', $tag->slug) }}">{{ $tag->title }} </a>
+            @endforeach
+        </div>
+    </div>
+ @endif

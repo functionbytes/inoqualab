@@ -1,30 +1,29 @@
-
-<div class="widget__search "  >
-    {!! Form::open(['route' => ['blogs.filters'], 'class' => 'search-form', 'id' => 'formFilter', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) !!}
-    {{ csrf_field() }}
-        <input type="search" id="search"  name="search" autocomplete="off" placeholder="Buscar …" >
-        {!! Form::close() !!}
+<div class="widget widget-search wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
+    {!! Form::open(['route' => ['blogs.filters'], 'class' => 'rbt-search-style-1', 'id' => 'formFilter', 'method' => 'POST', 'files' => true, 'enctype' => 'multipart/form-data']) !!}
+    {{ csrf_field() }}  {{ csrf_field() }}
+        <input type="text"  id="search" name="search" autocomplete="off" placeholder="Buscar..." required="">
+        <button type="submit" class="searchbutton fa fa-search"></button>
+    {!! Form::close() !!}
 </div>
 
 @push('scripts')
 
-<script>
-    $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
 
-        $("#search").keypress(function(e) {
-            if (e.which == 13) {
+            $("#search").keypress(function(e) {
+                if (e.which == 13) {
 
+                    $('#formFilter').submit();
+                }
+            });
+
+
+            $("#searchButton").click(function() {
                 $('#formFilter').submit();
-            }
+            });
+
         });
-
-
-        $("#searchButton").click(function() {
-            $('#formFilter').submit();
-        });
-
-    });
-
-</script>
+    </script>
 
 @endpush

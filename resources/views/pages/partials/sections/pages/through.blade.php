@@ -1,0 +1,71 @@
+<section id="features-5" class="pt-100 features-section division">
+    <div class="container">
+
+
+        <!-- SECTION TITLE -->
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-9">
+                <div class="section-title mb-70">
+
+                    <!-- Title -->
+                    <h2 class="s-50 w-700">Reach your audience through social media marketing</h2>
+
+                    <!-- Text -->
+                    <p class="s-21 color--grey">Ligula risus auctor tempus magna feugiat lacinia.</p>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- FEATURES-5 WRAPPER -->
+        <div class="fbox-wrapper text-center">
+            <div class="row d-flex align-items-center">
+
+
+                <!-- FEATURE BOX #1 -->
+                <div class="col-md-6">
+                    <div class="fbox-5 fb-1 gr--smoke r-16 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+
+                        <!-- Text -->
+                        <div class="fbox-txt order-last order-md-2">
+                            <h5 class="s-26 w-700">Marketing Integrations</h5>
+                            <p>Aliquam a augue suscipit luctus diam neque purus ipsum neque and dolor primis libero</p>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="fbox-5-img order-first order-md-2">
+                            <img class="img-fluid light-theme-img" src="images/f_06.png" alt="feature-image">
+                            <img class="img-fluid dark-theme-img" src="images/f_06_dark.png" alt="feature-image">
+                        </div>
+
+                    </div>
+                </div>	<!-- END FEATURE BOX #1 -->
+
+
+                <!-- FEATURE BOX #2 -->
+                <div class="col-md-6">
+                    <div class="fbox-5 fb-2 gr--smoke r-16 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+
+                        <!-- Image -->
+                        <div class="fbox-5-img">
+                            <img class="img-fluid light-theme-img" src="images/f_04.png" alt="feature-image">
+                            <img class="img-fluid dark-theme-img" src="images/f_04_dark.png" alt="feature-image">
+                        </div>
+
+                        <!-- Text -->
+                        <div class="fbox-txt">
+                            <h5 class="s-26 w-700">Productivity Focused</h5>
+                            <p>Aliquam a augue suscipit luctus diam neque purus ipsum neque and dolor primis libero</p>
+                        </div>
+
+                    </div>
+                </div>	<!-- END FEATURE BOX #2 -->
+
+
+            </div>  <!-- End row -->
+        </div>	<!-- END FEATURES-5 WRAPPER -->
+
+
+    </div>     <!-- End container -->
+</section>

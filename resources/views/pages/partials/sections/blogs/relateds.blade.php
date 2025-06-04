@@ -1,43 +1,34 @@
  @if (count($recents) > 0)
- <h3 class="mt-5 mb-3">Relacionados</h3>
-                                 <div class="row">
-                                    @foreach ($recents as $recent)
-                                    <div class="col-md-6">
-                                       <article class="pbmit-blog-style-1">
-                                          <div class="post-item">
-                                             <div class="pbmit-featured-container">
-                                                <div class="pbmit-featured-wrapper">
-                                                   @if ($recent->thumbnail() != null)
-                                                   <img class="img-fluid " src="/pages/images/blog/{{ $recent->thumbnail()->filename }}" alt="{{ $recent->slug }}">
-                                                   @else
-                                                         <img class="img-fluid" src="/pages/images/blog/default.jpg" alt="{{ $recent->slug }}">
-                                                   @endif
-                                                </div>
-                                             </div>
-                                             <div class="pbminfotech-box-content">
-                                                <div class="pbmit-meta-date-wrapper pbmit-meta-line">					
-                                                   <span class="pbmit-meta-date">{{ date('j', strtotime($recent->created_at)) }}</span>
-                                                   <span class="pbmit-meta-month">{{ date('M', strtotime($recent->created_at)) }}</span>
-                                                </div>
-                                                <div class="pbmit-meta-container">
-                                                   <div class="pbmit-meta-cat-wrapper pbmit-meta-line">
-                                                      <div class="pbmit-meta-category">
-                                                         <i class="pbmit-base-icon-folder-open-empty"></i>
-                                                         <a href="#" rel="category tag">{{ $blog->categorie->label }}</a>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <h3 class="pbmit-post-title">
-                                                   <a href="{{ route('blogs.view', $recent->slug) }}">{{ substr(strip_tags($recent->label), 0, 400) }}</a>
-                                                </h3>
-                                                
-                                             </div>
-                                          </div>
-                                       </article> 
-                                    </div>
-                                    @endforeach
-                                 </div>
+   
+ <div class="related-post pt--60">
+
+    <div class="section-title text-start mb--40">
+        <h4 class="title">Publicación similar</h4>
+    </div>
+
+    @foreach ($recents as $recent)
+    <!-- Start Single Card  -->
+    <div class="rbt-card card-list variation-02 rbt-hover mt--30">
+        <div class="rbt-card-img">
+            <<a href="{{ route('blogs.view',$recent->slug) }}">
+                @if($recent->thumbnail!=null)
+                    <img src="{{ asset('/pages/images/blog/'.$recent->thumbnail) }}" alt="image">
+                @else
+                    <img src="{{ asset('/pages/images/blog/default.jpg') }}" alt="image">
+                @endif
+            </a>
+        </div>
+        <div class="rbt-card-body">
+            <h5 class="rbt-card-title"><a href="{{ route('blogs.view',$recent->slug) }}">{{substr(strip_tags($recent->title), 0, 400)}}.</a>
+            </h5>
+            <div class="rbt-card-bottom">
+                <a class="transparent-button" href="{{ route('blogs.view',$recent->slug) }}">Lee más<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"></path><path stroke-linecap="square" d="M.663 5.572h14.594"></path></g></svg></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- End Single Card  -->
+    @endforeach
 
 
-    
-@endif
+    </div>
+ @endif
