@@ -1,9 +1,1 @@
-
-
-
-@if(setting('cellphone_enable') == 'true' )
-    <a href="tel:setting('cellphone')" target="_blank" class="bt-support-now theme-btns"><i class="fa fa-phone"></i><span>Llamar</span></a>
-@endif
-@if(setting('whatsapp_enable') == 'true' )
-<a href="https://api.whatsapp.com/send?phone={{ setting('page_phone') }}" target="_blank" class="bt-buy-now theme-btns"><i class="fab fa-whatsapp"></i><span>Whatsapp</span></a>
-@endif
+<a href="https://api.whatsapp.com/send?phone={!!$settings->cellphone!!}" target="_blank" class="bt-buy-now theme-btn"><i class="fab fa-whatsapp"></i><span>Whatsapp</span></a><a href="{{ route('system') }}" target="_blank" class="bt-support-options theme-btn"><i class="fa fa-desktop"></i><span>Nuestro sistema</span></a><a href="tel:{!! $settings->phone !!}" target="_blank" class="bt-support-now theme-btn"><i class="fa fa-phone"></i><span>Llamar</span></a>

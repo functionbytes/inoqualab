@@ -1,22 +1,22 @@
  @if (count($recents) > 0)
-    <div class="widget widget-recent-courses wow fadeInUp delay-0-2s animated" style="visibility: visible; animation-name: fadeInUp;">
-        <h4 class="widget-title">Blogs recientes</h4>
-        <ul>
-            @foreach ($recents as $recent)
-                <li>
-                    <div class="image">
-                        @if ($recent->image != null)
-                            <img src="{{ asset('/pages/images/blog/' . $recent->image) }}" alt="image">
-                        @else
-                            <img src="{{ asset('/pages/images/blog/default.jpg') }}" alt="image">
-                        @endif
+
+ 
+ <div class="widget__recent-posts " >
+    <h2 class="widget__title-2">RECIENTES</h2>
+    <div class="widget__rposts">
+        @foreach ($recents as $recent)
+        <div class="widget__rpost">
+            <a href="{{ route('blogs.view', $recent->slug) }}">
+                <article>
+                    <div class="rp-right">
+                        <h3 class="rp-title">{{ substr(strip_tags($recent->label), 0, 400) }}</h3>
+                        <p class="rp-date">{{ humanize_date($recent->created_at) }}</p>
                     </div>
-                    <div class="content">
-                        <h6><a href="{{ route('blogs.view', $recent->slug) }}">{{ substr(strip_tags($recent->title), 0, 400) }}</a></h6>
-                        <span>By <a href="#">Williams</a></span>
-                    </div>
-                </li>
-            @endforeach
-        </ul>
+                </article>
+            </a>
+        </div>
+        @endforeach
     </div>
- @endif
+</div>
+
+@endif

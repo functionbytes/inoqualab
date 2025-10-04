@@ -1,130 +1,68 @@
 @extends('layouts.pages')
 
-@section('title', 'Inicio')
 
 @section('content')
 
-<div class="conatct padding-top padding-bottom">
-    <div class="container">
-        <div class="contact__wrapper">
-            <div class="row g-5">
-                <div class="col-lg-6 aos-init aos-animate" data-aos="fade-right" data-aos-duration="800">
-                    <div class="cotact__details">
-                        <div class="contact__header">
-                            <h2>Contacto para información</h2>
-                            <p>Valoramos la retroalimentación de nuestros clientes y estamos aquí para responder a tus preguntas, escuchar tus
-                                comentarios y proporcionar cualquier ayuda que necesites.</p>
-                        </div>
+<!-- Contact Area Start -->
+<section class="contact__area wow wcfadeUp" data-wow-delay="0.3s">
+  <div class="container line">
+    <div class="row">
+      <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5">
+        <div class="contact__map">
+          <iframe src="{{ $settings->maps }}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-7">
+        <div class="contact__content  contacts__container">
+          <h2 class="contact__title">Contacto</h2>
+          <p>Si tienes dudas o quieres saber más nos podremos en contacto contigo.</p>
+          <div class="contact__form  " >
+            <form  id="formContacts" class="row" enctype="multipart/form-data"  role="form" onSubmit="return false">
 
-                        <div class="contact__info ">
-                            <div class="contact__item">
-                                <div class="contact__item-thumb">
-                                    <span><i class="fa-duotone fa-location-dot"></i></span>
-                                </div>
-                                <div class="contact__item-content">
-                                    <h5>Ubicación</h5>
-                                    <p class="mb-0">{{ setting("page_address") }}</p>
-                                </div>
-                            </div>
-                            <div class="contact__item">
-                                <div class="contact__item-thumb">
-                                    <span>
-                                        <i class="fa-duotone fa-phone"></i>
-                                    </span>
-                                </div>
-                                <div class="contact__item-content">
-                                    <h5>Número de contacto</h5>
-                                    <p class="mb-0">+{{ setting("page_cellphone") }}</p>
-                                </div>
-                            </div>
-                            <div class="contact__item">
-                                <div class="contact__item-thumb">
-                                    <span>
-                                        <i class="fa-duotone fa-envelope"></i>
-                                    </span>
-                                </div>
-                                <div class="contact__item-content">
-                                    <h5>Correo electrónico</h5>
-                                    <p class="mb-0">{{ setting("page_email") }}</p>
-                                </div>
-                            </div>
-                            <div class="contact__item">
-                                <div class="contact__item-thumb">
-                                    <span><i class="fa-duotone fa-clock-two"></i></span>
-                                </div>
-                                <div class="contact__item-content">
-                                    <h5>Horario</h5>
-                                    <p class="mb-0">Lunes - Viernes: {{ setting("page_hour_weekend") }}</p>
-                                    <p class="mb-0">Sabados: {{ setting("page_hour_weekends") }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 aos-init aos-animate d-flex align-items-center" data-aos="fade-left" data-aos-duration="800">
-                    <div class="contact__form small-mt-50">
-                        <h3>Contacto</h3>
-                        <p>Si tienes dudas o quieres saber másnos podremos en contacto contigo.</p>
-
-                            <form id="formContacts" class="account__form" enctype="multipart/form-data" role="form" onSubmit="return false">
-
-                                <div class="row g-4">
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Nombres" required="">
-                                        </div>
-                                        <label id="firstname-error" class="error d-none" for="firstname"></label>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Apellidos" required="">
-                                        </div>
-                                        <label id="lastname-error" class="error d-none" for="lastname"></label>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="">
-                                        </div>
-                                        <label id="email-error" class="error d-none" for="email"></label>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <input type="text" id="cellphone" name="cellphone" class="form-control" placeholder="Celular" required="">
-                                        </div>
-                                        <label id="cellphone-error" class="error d-none" for="cellphone"></label>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <textarea name="message" id="message" placeholder="Ingresa su mensaje" class="form-control" rows="4" required=""></textarea>
-                                        </div>
-                                        <label id="message-error" class="error d-none" for="message"></label>
-                                    </div>
-                                </div>
-
-                                <div class="account__form-passcheck">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="terms">
-                                        <label for="terms" class="form-check-label">
-                                            Acepta <a href="#">términos</a> y <a href="#">política de privacidad</a>.
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="errors d-none">
-                                    </div>
-                                </div>
-
-                                <a  id="submitContacts" class="btn btn-primary contact-disabled w-100">Enviar</a>
-
-                            </form>
-                    </div>
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 form-container">
+                <!-- <label for="name">Name</label> -->
+                <input type="text" id="names" name="names"  placeholder="Tu nombre">
+              </div>
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 form-container">
+                <!-- <label for="email">Email</label> -->
+                <input type="email" id="email"  name="email"  placeholder="Tu correo">
+              </div>
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 form-container">
+                <!-- <label for="phone">Phone (Optional)</label> -->
+                <input type="text" id="cellphone" name="cellphone" placeholder="Tu número">
+              </div>
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 form-container">
+                <!-- <label for="phone">Phone (Optional)</label> -->
+                <input type="text" id="subject" name="subject" placeholder="Asunto">
+              </div>
+             
+              <div class="col-xxl-12">
+                <!-- <label for="message">Message</label> -->
+                <textarea name="message" id="message" placeholder="Tu mensaje aquí"></textarea>
+            </div>
+              
+              <div class="form-group">
+                <div class="form-check checkbox">
+                    <input name="terms"  class="form-check-input" type="checkbox" id="terms" required="">
+                    <label class="form-check-label" for="terms">
+                        Acepto los <a class="link style1" href="{{ route('terms') }}">terminos y condiciones</a> para el tratamiento de mis datos personales
+                    </label>
                 </div>
             </div>
+
+              <div class="col-xxl-12 mt-3">
+                <button id="addContacts" class="submit wc-btn-primary btn-hover contact-disabled wc-btn-form submit-contacts" type="submit"><span></span> ENVIAR</button>
+              </div>
+
+
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
+<!-- Contact Area End -->
 
 
 
@@ -134,184 +72,164 @@
 
 
 
-
 @push('scripts')
-<script type="text/javascript">
-    $(document).ready(function() {
+    <script type="text/javascript">
+        $(document).ready(function() {
 
-        jQuery.validator.addMethod("emailExt", function(value, element, param) {
-            return value.match(/^[a-zA-Z0-9_\.%\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,3}$/);
-        }, 'Porfavor ingrese email valido');
-
-        jQuery.validator.addMethod(
-            'validationTxt',
-            function(value, element, param) {
-                return value.match(
-                    /^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/,
-                )
-            },
-            'Por favor ingrese solo letras',
-        )
-
-
-        $("#terms").on("change", function() {
-            value = $(this).is(":checked");
-            if (value == true) {
-                $('#submitContacts').removeClass("contact-disabled");
-            } else {
-                $('#submitContacts').addClass("contact-disabled");
-            }
-        });
-
-        $("#submitContacts").click(function() {
-            $("#formContacts").submit();
-        });
-
-
-        $("#formContacts").validate({
-            submit: false,
-            ignore: ".ignore",
-            errorClass: 'error show-error',
-            validClass: 'valid',
-            rules: {
-                firstname: {
-                    validationTxt: true,
-                    required: true,
-                    minlength: 3,
-                    maxlength: 30
+            jQuery.validator.addMethod("emailExt", function(value, element, param) {
+                return value.match(/^[a-zA-Z0-9_\.%\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,3}$/);
+            }, 'Porfavor ingrese email valido');
+ 
+            jQuery.validator.addMethod(
+                'validationTxt',
+                function(value, element, param) {
+                    return value.match(
+                        /^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/,
+                    )
                 },
-                lastname: {
-                    validationTxt: true,
-                    required: true,
-                    minlength: 3,
-                    maxlength: 30
-                },
-                email: {
-                    required: true,
-                    email: true,
-                    emailExt: true
-                },
-                cellphone: {
-                    required: true,
-                    number: true,
-                    minlength: 8,
-                    maxlength: 500
-                },
-                message: {
-                    required: true,
-                    minlength: 3,
-                    maxlength: 8000
-                }
-            },
-            messages: {
-                firstname: {
-                    text: 'Este campo es obligatorio.',
-                    required: 'El campo nombre es necesario.',
-                    minlength: 'El nombre debe contener al menos 3 caracteres.',
-                    maxlength: 'El nombre  debe contener no mas de 30 caracteres'
-                },
-                lastname: {
-                    text: 'Este campo es obligatorio.',
-                    required: 'El campo nombre es necesario.',
-                    minlength: 'El nombre debe contener al menos 3 caracteres.',
-                    maxlength: 'El nombre  debe contener no mas de 30 caracteres'
-                },
-                email: {
-                    required: "El email es necesario",
-                    email: "Por favor ingrese email valido"
-                },
-                cellphone: {
-                    required: "La celular es necesario",
-                    minlength: "La celular debe contener al menos 6 caracteres",
-                    maxlength: "La celular debe contener no mas de 20 caracteres",
-                    number: "Sólo se pueden ingresar números"
-                },
-                message: {
-                    required: 'Este campo es obligatorio.',
-                    minlength: 'El mensaje debe contener al menos 3 caracteres.',
-                    maxlength: 'El mensaje  debe contener no mas de 8000 caracteres',
-                }
-            },
-            errorPlacement: function(error, element) {
-                $("#" + element.attr("id") + "-error")
-                    .removeClass("d-none")
-                    .addClass("show-error")
-                    .html(error.html());
-            },
-            submitHandler: function(form) {
+                'Por favor ingrese solo letras',
+            )
 
-                var $form = $('#formContacts');
-                var formData = new FormData($form[0]);
-                var firstname = $("#firstname").val();
-                var lastname = $("#lastname").val();
-                var email = $("#email").val();
-                var cellphone = $("#cellphone").val();
-                var message = $("#message").val();
 
-                formData.append('firstname', firstname);
-                formData.append('lastname', lastname);
-                formData.append('email', email);
-                formData.append('cellphone', cellphone);
-                formData.append('message', message);
 
-                var $submitButton = $('button[type="submit"]');
-                $submitButton.prop('disabled', true);
+            $("#terms").on("change", function() {
 
-                $.ajax({
-                    url: "{{ route('contacts.store') }}",
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              value = $(this).is(":checked");
+
+                  if (value == true) {
+                      $('#addContacts').removeClass("contact-disabled");
+                  } else {
+                      $('#addContacts').addClass("contact-disabled");
+                  }
+
+          });
+            $("#submitContacts").click(function() {
+                $("#formContacts").submit();
+            });
+
+
+            $("#formContacts").validate({
+                submit: false,
+                ignore: ":hidden:not(#note),.note-editable.panel-body",
+                rules: {
+                    names: {
+                        validationTxt: true,
+                        required: true,
+                        minlength: 3,
+                        maxlength: 30
                     },
-                    type: "POST",
-                    contentType: false,
-                    processData: false,
-                    data: formData,
-                    success: function(response) {
-
-                        if(response.success == true){
-
-                            message = response.message;
-
-                            toastr.success("Debes confirmar que no eres un robot", "Operación exitosa", {
-                                closeButton: true,
-                                progressBar: true,
-                                positionClass: "toast-bottom-right"
-                            });
-
-                            setTimeout(function() {
-
-                                $("#firstname").val('')
-                                $("#lastname").val('');
-                                $("#email").val('');
-                                $("#cellphone").val('');
-                                $("#textarea").text('');
-
-                            }, 2000);
-
-                        }else{
-
-                            $submitButton.prop('disabled', false);
-                            error = response.message;
-
-                            toastr.warning("Debes validar quye no eres un boot", "Operación fallida", {
-                                closeButton: true,
-                                progressBar: true,
-                                positionClass: "toast-bottom-right"
-                            });
-
-                            $('.errors').text(error);
-                            $('.errors').removeClass('d-none');
-
-                        }
-
+                    email: {
+                        required: true,
+                        email: true,
+                        emailExt: true
+                    },
+                    cellphone: {
+                        required: true,
+                        number: true,
+                        minlength: 8,
+                        maxlength: 500
+                    },
+                    subject: {
+                       required: true,
+                       minlength: 3,
+                       maxlength: 300,
+                    },
+                    message: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 500
                     }
-                });
+                },
+                messages: {
+                    names: {
+                        text: 'Este campo es obligatorio.',
+                        required: 'El campo nombre es necesario.',
+                        minlength: 'El nombre debe contener al menos 3 caracteres.',
+                        maxlength: 'El nombre  debe contener no mas de 30 caracteres'
+                    },
+                    cellphone: {
+                        required: "La celular es necesario",
+                        minlength: "La celular debe contener al menos 6 caracteres",
+                        maxlength: "La celular debe contener no mas de 20 caracteres",
+                        number: "Sólo se pueden ingresar números"
+                    },
+                    subject: {
+                        required: 'Este campo es obligatorio.',
+                        minlength: 'El nombre debe contener al menos 3 caracteres.',
+                        maxlength: 'El nombre  debe contener no mas de 300 caracteres',
+                    },
+                    email: {
+                        required: "El email es necesario",
+                        email: "Por favor ingrese email valido"
+                    },
+                    message: {
+                      required: 'Este campo es obligatorio.',
+                      minlength: 'El nombre debe contener al menos 3 caracteres.',
+                      maxlength: 'El nombre  debe contener no mas de 800 caracteres',
+                    }
+                },
+                submitHandler: function(form) {
 
+                  var $form = $('#formContacts');
+                    var formData = new FormData($form[0]);
+
+                    $.ajax({
+                        url: "/contacts/store",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: "POST",
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function(data) {
+
+                            if (data == 'Debes confirmar que no eres un robot') {
+
+                                $("#notification").removeClass("none");
+                                $("#recaptcha").text(data);
+
+                            } else {
+
+                                swal("Solicitud enviada", "Nos comunicaremos contigo !!",
+                                    "success");
+
+                                    $("#names").val('');
+                                    $("#email").val('');
+                                    $("#cellphone").val('');
+                                    $("#subject").val('');
+                                    $("#message").val('');
+                                    
+
+                            }
+                        }
+                    });
+
+                }
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $("#terms").on("change", function() {
+
+            value = $(this).is(":checked")
+
+            if (value == true) {
+                $('#addApplications').removeClass("contact-disabled");
+            } else {
+                $('#addApplications').addClass("contact-disabled");
             }
 
         });
-    });
-</script>
 
+
+
+        $(".service").select2({
+            placeholder: "Selecionar un servicio",
+            minimumResultsForSearch: -1
+        });
+    </script>
 @endpush
 

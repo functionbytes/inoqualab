@@ -227,7 +227,7 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth']], function () {
         Route::get('/delete/thumbnail/{token}', [PartnersController::class, 'deleteThumbnail'])->name('manager.blogs.delete.thumbnail');
         Route::get('/get/thumbnail/{token}', [PartnersController::class, 'getThumbnail'])->name('manager.blogs.blog.thumbnail');
 
-        Route::post('/partners/pdf', [PartnersController::class, 'storePdf'])->name('manager.storePdf.pdf');
+        Route::post('/pdf', [PartnersController::class, 'storePdf'])->name('manager.storePdf.pdf');
         Route::get('/delete/pdf/{token}', [PartnersController::class, 'deletePdf'])->name('manager.delete.pdf');
         Route::get('/get/pdf/{token}', [PartnersController::class, 'getPdf'])->name('manager.partner.pdf');
 

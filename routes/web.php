@@ -24,8 +24,28 @@ use App\Http\Controllers\Pages\PublicationsController;
 use App\Http\Controllers\Pages\RegulationsController;
 use App\Http\Controllers\Pages\SchemesController;
 use App\Http\Controllers\Pages\ServicesController;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 Route::group(['middleware' => ['web']], function() {
+
+
+    Route::get('/mails', function () {
+        try {
+            $to = 'revoxservices@gmail.com';
+            $subject = 'Prueba de correo desde Laravel';
+
+            Mail::raw('Este es un correo de prueba enviado desde Laravel usando Mailrelay.', function ($message) use ($to, $subject) {
+                $message->to($to)
+                    ->subject($subject);
+            });
+
+            return '✅ Correo de prueba enviado a ' . $to;
+        } catch (\Exception $e) {
+            Log::error('❌ Error al enviar correo: ' . $e->getMessage());
+            return '❌ Error al enviar correo: ' . $e->getMessage();
+        }
+    });
 
     Route::get('/', [PagesController::class, 'index'])->name('index');
     Route::get('/home', [PagesController::class, 'home'])->name('home');

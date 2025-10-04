@@ -37,7 +37,22 @@ class PagesController extends Controller
 }
 
 
-    public function index(){
+    public function index(Request $request){
+
+        \Log::info('MetaBot visitó', [
+            'ip' => request()->ip(),
+            'user_agent' => request()->header('User-Agent')
+        ]);
+
+        if (app()->environment('production')) {
+            $userAgent = $request->header('User-Agent');
+
+            if (str_contains($userAgent, 'facebookexternalhit') || str_contains($userAgent, 'Facebot')) {
+                return response('<html><head><meta name="robots" content="noindex"></head><body>Facebook Bot OK</body></html>', 200)
+                    ->header('Content-Type', 'text/html');
+            }
+        }
+
         $blogs = Blog::available()->orderBy('created_at', 'desc')->get()->take(3);
         $partners = Partner::available()->orderBy('position', 'desc')->get();
         $testimonials = Testimonial::available()->get();
