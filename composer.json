@@ -29,8 +29,7 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/Helper.php",
-            "app/Helpers/Namespaced.php"
+            "app/Helpers/date.php"
         ]
     },
     "autoload-dev": {
@@ -38,8 +37,7 @@
             "Tests\\": "tests/"
         },
         "files": [
-            "app/Helpers/Helper.php",
-            "app/Helpers/Namespaced.php"
+            "app/Helpers/date.php"
         ]
     },
     "scripts": {
